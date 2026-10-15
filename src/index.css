@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 body {
@@ -28,30 +28,34 @@ main {
   border-radius: 10px;
 
   display: flex;
+  flex-direction: column;
+  gap: 50px;
   align-items: center;
   justify-content: center;
 }
 
-.dices-container {
+.dice-container {
   display: grid;
-  grid-template-columns: 50px 50px 50px 50px 50px;
+  grid-template: auto auto / repeat(5, 1fr);
   align-items: center;
   justify-content: center;
   gap: 25px;
   row-gap: 25px;
 }
 
-.die-button{
+.die-btn{
   width: 50px;
   height: 50px;
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 1.75rem;
+  font-weight: bold;
+  font-family: 'Inter';
   border-radius: 5px;
   border-style: none;
   box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.25);
   background-color: white;
 
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .die-button:hover{
@@ -61,4 +65,20 @@ main {
 .die-button:active{
   background-color: #C0C0C0;
   box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+}
+
+.roll-dice-btn{
+  width: 150px;
+  height: 50px;
+  font-size: 1.75rem;
+  font-weight: bold;
+  font-family: 'Inter';
+  color: whitesmoke;
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 2px 2px 2px 0px rgba(0,0,0,0.25);
+  background-color: #005FFA;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
