@@ -29,9 +29,8 @@ main {
 
   display: flex;
   flex-direction: column;
-  gap: 50px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .dice-container {
@@ -43,7 +42,7 @@ main {
   row-gap: 25px;
 }
 
-.die-btn{
+.dice-container > button{
   width: 50px;
   height: 50px;
   font-size: 1.75rem;
@@ -58,13 +57,17 @@ main {
   transition: all 0.2s ease-in-out;
 }
 
-.die-button:hover{
+.dice-container > button:hover{
   background-color: #F7F7F7;
 }
 
-.die-button:active{
+.dice-container > button:active{
   background-color: #C0C0C0;
   box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
+}
+
+.dice-container > button.held{
+  background-color: #59E391;
 }
 
 .roll-dice-btn{
@@ -81,4 +84,13 @@ main {
 
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+}
+
+.roll-dice-btn:hover{
+  opacity: 0.9;
+}
+
+.roll-dice-btn:active{
+  opacity: 0.8;
+  box-shadow: 1px 1px 1px 0px rgba(0,0,0,0.25);
 }

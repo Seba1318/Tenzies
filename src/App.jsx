@@ -2,7 +2,7 @@ import {useState} from 'react'
 import Die from './components/Die.jsx'
 
 export default function App(){
-  function generateRandomDice(){
+  function generateRandomDice(init){
     /*const newDice = [];
 
     for(let i = 0; i < 10; i++){
@@ -15,17 +15,27 @@ export default function App(){
 
     return new Array(10)
       .fill(0)
-        .map(() => Math.floor(Math.random() * 6 + 1));
+        .map((_, index) => {return {id: index, value: (Math.floor(Math.random() * 6 + 1)), isHeld: false}});
   }
 
   const [dice, setDice] = useState(generateRandomDice());
 
   function rollDice(){
-    setDice(generateRandomDice());
+    setDice((prevDice) => {
+      return generateRandomDice();
+    });
   }
 
-  const diceElements = dice.map((value, index) => {
-    return <Die key = {index} value={value}/>;
+  function holdDie(id){
+    return(setDice((prevDice) =>{
+      return prevDice.map((die) => {
+        return die.id === id ? {...die, isHeld: !die.isHeld} : die;
+      });
+    }));
+  }
+
+  const diceElements = dice.map((die, index) => {
+    return <Die key = {index} id={die.id} value={die.value} isHeld={die.isHeld} holdDie={holdDie}/>;
   })
 
   return(
