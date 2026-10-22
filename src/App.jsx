@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import Die from './components/Die.jsx'
+import {nanoid} from 'nanoid'
 
 export default function App(){
   function generateRandomDice(init){
@@ -15,14 +16,16 @@ export default function App(){
 
     return new Array(10)
       .fill(0)
-        .map((_, index) => {return {id: index, value: (Math.floor(Math.random() * 6 + 1)), isHeld: false}});
+        .map(() => {return {id: nanoid(), value: (Math.floor(Math.random() * 6 + 1)), isHeld: false}});
   }
 
   const [dice, setDice] = useState(generateRandomDice());
 
   function rollDice(){
-    setDice((prevDice) => {
-      return generateRandomDice();
+    setDice(prevDice => {
+      return prevDice.map((die) => {
+        return die.isHeld ? die : {...die, value: Math.floor(Math.random() * 6 + 1)};
+      })
     });
   }
 
@@ -35,11 +38,14 @@ export default function App(){
   }
 
   const diceElements = dice.map((die, index) => {
-    return <Die key = {index} id={die.id} value={die.value} isHeld={die.isHeld} holdDie={holdDie}/>;
+    return <Die key = {die.id} id={die.id} value={die.value} isHeld={die.isHeld} holdDie={holdDie}/>;
   })
 
   return(
     <main>
+      <h1 className="title">Tenzies</h1>
+      <p className="instructions">Roll until all dice are the same. Click each die to freeze it at its current value between rolls.</p>
+
       <div className="dice-container">
         {diceElements}
       </div>

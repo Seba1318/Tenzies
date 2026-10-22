@@ -33,6 +33,20 @@ main {
   justify-content: space-evenly;
 }
 
+.title {
+  font-family: 'Inter';
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.instructions {
+  font-family: 'Inter';
+  font-size: 1.25rem;
+  text-align: center;
+  width: 80%;
+}
+
 .dice-container {
   display: grid;
   grid-template: auto auto / repeat(5, 1fr);
@@ -40,6 +54,8 @@ main {
   justify-content: center;
   gap: 25px;
   row-gap: 25px;
+
+  margin-bottom: 25px;
 }
 
 .dice-container > button{
