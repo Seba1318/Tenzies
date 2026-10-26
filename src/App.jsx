@@ -9,10 +9,6 @@ export default function App(){
   dice.every(die => die.isHeld) && 
   dice.every(die => die.value === dice[0].value);
 
-  if(gameWon){
-    console.log("Game won!");
-  }
-
   function generateRandomDice(){
     return new Array(10)
       .fill(0)

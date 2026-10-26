@@ -1,16 +1,50 @@
-# React + Vite
+# Tenzies
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A browser version of Tenzies built with React and Vite. Roll ten dice, hold the ones you want to keep, and try to get every die to show the same number.
 
-Currently, two official plugins are available:
+## How to play
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Select any die to hold it at its current value.
+2. Press **Roll** to reroll every die that is not held.
+3. Keep holding matching dice and rolling the rest until all ten dice show the same value.
+4. When you win, confetti appears and the button changes to **New Game**. Start another game with that button.
 
-## React Compiler
+## Getting started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+You’ll need Node.js and npm installed.
 
-## Expanding the ESLint configuration
+```bash
+git clone https://github.com/Seba1318/Tenzies.git
+cd Tenzies
+npm ci
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Open the local URL printed by Vite in your browser.
+
+## Available scripts
+
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start the Vite development server with hot module replacement. |
+| `npm run build` | Create a production build in `dist/`. |
+| `npm run preview` | Serve the production build locally. Run `npm run build` first. |
+| `npm run lint` | Check the project with ESLint. |
+
+## Built with
+
+- React and React DOM
+- Vite
+- `nanoid` for die identifiers
+- `react-confetti` for the win animation
+- CSS for the game layout and styling
+
+## Project structure
+
+```text
+src/
+  App.jsx              Game state and Tenzies rules
+  components/Die.jsx   Individual clickable die
+  index.css            Global styles and game layout
+  index.jsx            React entry point
+```
